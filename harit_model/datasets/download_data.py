@@ -30,7 +30,7 @@ def dataset():
     # if train_data is None or valid_data is None or test_data is None:
     print("Loading datasets...")
     image_shape = (224, 224)
-    batch_size = 64
+    batch_size = 30
 
     train_dir = path + "/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)/train"
     valid_dir = path + "/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)/valid"
