@@ -96,7 +96,7 @@ async def pred_disease(images):
         print(f"An error occurred during prediction: {str(e)}")
 
 
-api = "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"
+# api = "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"
 
 
 
