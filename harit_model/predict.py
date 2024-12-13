@@ -47,22 +47,7 @@ async def pred_disease(images):
     Handles a message to predict plant disease from an uploaded image and displays the image.
     """
     try:
-        # Ask the user to upload an image
-        # images = await cl.AskFileMessage(
-        #     content="Please upload an image of the plant to detect the disease.",
-        #     accept=["image/*"]
-        # ).send()
-
-        # # Take the first uploaded image
-        # img_path = images[0].path
-
-        # # Display the uploaded image
-        # image = cl.Image(path=img_path, name="uploaded_image", display="inline")
-        # await cl.Message(
-        #     content="Here is the uploaded image:",
-        #     elements=[image]  # Attach the image to the message
-        # ).send()
-
+       
         # Preprocess the image for prediction
         img = keras_image.load_img(images, target_size=(224, 224))
         img_array = keras_image.img_to_array(img)
