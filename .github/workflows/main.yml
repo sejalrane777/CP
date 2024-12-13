@@ -8,7 +8,7 @@ on:
 jobs:
   train:
     env:
-      RE_TRAIN: yes      # Re-train 'Yes' / 'No'
+      RE_TRAIN: no     # Re-train 'Yes' / 'No'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
