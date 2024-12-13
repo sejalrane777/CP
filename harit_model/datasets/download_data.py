@@ -41,6 +41,7 @@ def dataset():
 
     # Load training data
     print("Training Images:")
+    sample_fraction = 0.1
     train_data = train_datagen.flow_from_directory(
         train_dir,
         target_size=image_shape,
@@ -48,6 +49,8 @@ def dataset():
         class_mode='categorical',
         shuffle=True,
         subset='training')
+    indices = random.sample(range(len(train_data.filenames)), int(len(train_data.filenames) * sample_fraction))
+    train_data = [train_data.filenames[i] for i in indices]
 
     # Load validation data (20% of training data)
     print("Validating Images:")
