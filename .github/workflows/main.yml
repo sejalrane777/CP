@@ -5,7 +5,7 @@ on:
       - main
   workflow_dispatch:
 
-# jobs:
+jobs:
 #   train:
 #     env:
 #       RE_TRAIN: no     # Re-train 'Yes' / 'No'
@@ -31,7 +31,7 @@ on:
     #     #MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
     #     #MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
     #     # GIT_COMMIT_MSG: ${{ github.event.head_commit.message }}
-      run: python harit_model/train_pipeline.py
+      # run: python harit_model/train_pipeline.py
 #    - uses: actions/upload-artifact@v2
 #      with:
 #        name: my-trained-pipeline
