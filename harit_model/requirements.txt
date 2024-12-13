@@ -1,0 +1,7 @@
+tensorflow
+pandas
+chainlit
+kagglehub
+openai
+numpy
+pillow
