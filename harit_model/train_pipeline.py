@@ -53,7 +53,7 @@ model.compile(optimizer=Adam(learning_rate=0.001),
 
 history = model.fit(train_data,
                     validation_data=valid_data,
-                    epochs=20,
+                    epochs=2,
                     batch_size=32)
 
 test_loss, test_acc = model.evaluate(test_data)
