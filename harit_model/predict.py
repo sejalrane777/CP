@@ -56,7 +56,7 @@ async def pred_disease(images):
 
         # Make predictions
         predictions = model.predict(img_array)
-        print(f"Predictions: {predictions}")  # Debugging the prediction output
+        print(f"Predictions: {predictions}") 
 
         # Ensure the predictions array is not empty and has the expected shape
         if predictions.shape[0] == 0:
