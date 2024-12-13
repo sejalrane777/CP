@@ -5,22 +5,22 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
-  train:
-    env:
-      RE_TRAIN: no     # Re-train 'Yes' / 'No'
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.11'
-    - name: Install dependencies
-      run: pip install -r harit_model/requirements.txt
-    - name: Train and save pipeline
+# jobs:
+#   train:
+#     env:
+#       RE_TRAIN: no     # Re-train 'Yes' / 'No'
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Set up Python 3.11
+#       uses: actions/setup-python@v3
+#       with:
+#         python-version: '3.11'
+#     - name: Install dependencies
+#       run: pip install -r harit_model/requirements.txt
+#     - name: Train and save pipeline
     #   env:
     #     DATA_VERSION: v1
     #     GH_USERNAME: ${{ secrets.GH_USERNAME }}
@@ -64,33 +64,33 @@ jobs:
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 #       run: pytest
 
-  build:
-    needs: [train]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.11'
-    #- uses: actions/download-artifact@v2
-    #  with:
-    #    name: my-trained-pipeline
-    #    path: titanic_model/trained_models
-    - name: Install dependencies
-      run: pip install --upgrade build
-    - name: Build package
-      run: python -m build
-    - uses: actions/upload-artifact@v3
-      with:
-        name: my-build-package
-        path: dist/*.whl
-        retention-days: 1
+  # build:
+  #   # needs: [train]
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     fail-fast: false
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Set up Python 3.11
+  #     uses: actions/setup-python@v3
+  #     with:
+  #       python-version: '3.11'
+  #   #- uses: actions/download-artifact@v2
+  #   #  with:
+  #   #    name: my-trained-pipeline
+  #   #    path: titanic_model/trained_models
+  #   - name: Install dependencies
+  #     run: pip install --upgrade build
+  #   - name: Build package
+  #     run: python -m build
+  #   - uses: actions/upload-artifact@v3
+  #     with:
+  #       name: my-build-package
+  #       path: dist/*.whl
+  #       retention-days: 1
 
   push-image:
-    needs: [train, build]
+    # needs: [train, build]
     runs-on: ubuntu-latest
     steps:
     - name: Repo Checkout
@@ -122,7 +122,7 @@ jobs:
 
 
   deploy:
-    needs: [train, build, push-image]
+    # needs: [train, build, push-image]
     runs-on: self-hosted
 
     steps:
