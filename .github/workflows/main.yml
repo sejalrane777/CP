@@ -32,7 +32,7 @@ jobs:
     #     #MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
     #     # GIT_COMMIT_MSG: ${{ github.event.head_commit.message }}
       run: python harit_model/train_pipeline.py
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
 #      with:
 #        name: my-trained-pipeline
 #        path: titanic_model/trained_models/*.pkl
