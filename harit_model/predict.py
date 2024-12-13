@@ -98,12 +98,12 @@ async def pred_disease(images):
 
 # api = "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"
 
-
+API_KEY = os.getenv("OPENAI_API_KEY")
 
 def get_chatgpt_diagnosis(disease):
 
     client = OpenAI(
-        api_key=api,  # This is the default and can be omitted
+        api_key=API_KEY,  # This is the default and can be omitted
     )
 
     chat_completion = client.chat.completions.create(
