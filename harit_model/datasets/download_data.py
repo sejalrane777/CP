@@ -34,7 +34,7 @@ def create_subset_data(data_gen, directory, sample_fraction=0.1):
     data_gen_original = data_gen.flow_from_directory(
         directory,
         target_size=(224, 224),
-        batch_size=64,
+        batch_size=32,
         class_mode='categorical',
         shuffle=False
     )
@@ -66,7 +66,7 @@ def create_subset_data(data_gen, directory, sample_fraction=0.1):
     reduced_data_gen = data_gen.flow_from_directory(
         reduced_dir,
         target_size=(224, 224),
-        batch_size=64,
+        batch_size=32,
         class_mode='categorical',
         shuffle=True
     )
@@ -81,7 +81,7 @@ def dataset():
 
     print("Loading datasets...")
     image_shape = (224, 224)
-    batch_size = 64
+    batch_size = 32
 
     train_dir = path + "/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)/train"
     valid_dir = path + "/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)/valid"
