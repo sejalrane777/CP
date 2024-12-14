@@ -9,7 +9,7 @@ jobs:
   train:
     env:
       RE_TRAIN: no     # Re-train 'Yes' / 'No'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
     steps:
@@ -123,7 +123,7 @@ jobs:
 
   deploy:
     needs: [train, build, push-image]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Pull Docker Image
